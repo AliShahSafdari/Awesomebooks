@@ -1,17 +1,21 @@
+/* eslint max-classes-per-file: ["error", 2] */
+const container = document.querySelector('.contain');
+
 class Book {
-  constructor(title, author){
+  constructor(title, author) {
     this.title = title;
-    this.author = author
+    this.author = author;
   }
 }
-class Store{
-  constructor(){
+class Store {
+  constructor() {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
   }
-  addBook(book){
-    this.books.push(book)
+
+  addBook(book) {
+    this.books.push(book);
     localStorage.setItem('books', JSON.stringify(this.books));
-    display()
+    display();
   }
 
   removeBook(book) {
@@ -19,25 +23,22 @@ class Store{
     localStorage.setItem('books', JSON.stringify(this.books));
     container.innerHTML = '';
   }
-
 }
 
 const bookName = document.querySelector('.book');
 const authorName = document.querySelector('.author');
 const add = document.querySelector('.add');
-const container = document.querySelector('.contain');
-let store = new Store()
+const store = new Store();
 
 function display() {
- 
   const div = document.createElement('div');
   div.classList.add('book-list');
   div.innerHTML = '';
 
-  container.innerHTML = store.books.reduce((output, book,i) => (
+  container.innerHTML = store.books.reduce((output, book, i) => (
     `${output
     }
-          <div class="book-list book-${i%2===0? 'odd': ''}">
+          <div class="book-list book-${i % 2 === 0 ? 'odd' : ''}">
           <div>
           <span>"${book.title}"</span>
           <span>by</span>
@@ -47,7 +48,6 @@ function display() {
           </div>
            
         `
-
 
   ), '');
 
@@ -61,7 +61,6 @@ function display() {
 }
 
 add.addEventListener('click', () => {
-
   const newBook = new Book(bookName.value, authorName.value);
   store.addBook(newBook);
 });
