@@ -1,0 +1,10 @@
+.book-list {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+.button {
+  width: 6%;
+}
