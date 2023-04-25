@@ -36,8 +36,11 @@ function display() {
     `${output
     }
           <div class="book-list">
-          <span>${book.title}</span>
+          <div>
+          <span>"${book.title}"</span>
+          <span>by</span>
           <span>${book.author}</span>
+          </div>
           <button class="button">remove</button>
           </div>
            
