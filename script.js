@@ -29,13 +29,15 @@ const container = document.querySelector('.contain');
 let store = new Store()
 
 function display() {
+ 
   const div = document.createElement('div');
   div.classList.add('book-list');
   div.innerHTML = '';
-  container.innerHTML = store.books.reduce((output, book) => (
+
+  container.innerHTML = store.books.reduce((output, book,i) => (
     `${output
     }
-          <div class="book-list">
+          <div class="book-list book-${i%2===0? 'odd': ''}">
           <div>
           <span>"${book.title}"</span>
           <span>by</span>
@@ -45,6 +47,8 @@ function display() {
           </div>
            
         `
+
+
   ), '');
 
   const button = document.querySelectorAll('.button');
