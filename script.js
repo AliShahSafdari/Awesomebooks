@@ -37,7 +37,7 @@ function display() {
     }
           <div class="book-list">
           <span>${book.title}</span>
-          <span>${book.writer}</span>
+          <span>${book.author}</span>
           <button class="button">remove</button>
           </div>
            
@@ -54,6 +54,7 @@ function display() {
 }
 
 add.addEventListener('click', () => {
+
   const newBook = new Book(bookName.value, authorName.value);
   store.addBook(newBook);
 });
