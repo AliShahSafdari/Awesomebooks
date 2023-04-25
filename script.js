@@ -9,13 +9,15 @@ const container = document.querySelector('.contain');
 
 function removeBook(book){
     books = books.filter(b => b !== book);
-    console.log(books)
-    console.log(book)
-
+    localStorage.setItem('books', JSON.stringify(books));
     container.innerHTML="";
     display(book);
+}
 
-
+function addBook(book){
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+    display(book);
 }
 
 function display(book) {
@@ -43,8 +45,32 @@ function display(book) {
  
     add.addEventListener('click', () => {
         let newBook = { title: bookName.value, writer: authorName.value}
-        books.push(newBook);
-        display(newBook);
+        addBook(newBook)
+        
     })
+
+    window.onload = () => {
+        
+     books = JSON.parse(localStorage.getItem('books')) || []
+
+     display(books)
+     
+    //  container.innerHTML = books.reduce((output, book) => (
+    //     `${output
+    //     }
+    //     <div class="book-list">
+    //     <span>${book.title}</span>
+    //     <span>${book.writer}</span>
+    //     <button class="button">remove</button>
+    //     </div> 
+    //   `
+    //   ), '');
+
+      
+    //   document.querySelectorAll('.button').forEach((btn, index) => {
+    //     btn.addEventListener("click", () => removeBook(books[index]));  
+    //    })
+     
+    }
    
  
