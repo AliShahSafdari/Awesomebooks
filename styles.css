@@ -43,9 +43,9 @@
   gap: 5px;
   justify-content: flex-end;
   align-items: flex-end;
- 
   padding: 10px 0;
 }
+
 .add {
   width: 30%;
   box-shadow: 2px 3px #333;
