@@ -12,16 +12,46 @@ class Store {
     this.books = JSON.parse(localStorage.getItem('books')) || [];
   }
 
-  addBook(book) {
-    this.books.push(book);
-    localStorage.setItem('books', JSON.stringify(this.books));
-    display();
-  }
-
   removeBook(book) {
     this.books = this.books.filter((b) => b !== book);
     localStorage.setItem('books', JSON.stringify(this.books));
     container.innerHTML = '';
+  }
+
+  display() {
+    const div = document.createElement('div');
+    div.classList.add('book-list');
+    div.innerHTML = '';
+
+    container.innerHTML = this.books.reduce((output, book, i) => (
+      `${output
+      }
+            <div class="book-list book-${i % 2 === 0 ? 'odd' : ''}">
+            <div>
+            <span>"${book.title}"</span>
+            <span>by</span>
+            <span>${book.author}</span>
+            </div>
+            <button class="button">remove</button>
+            </div>
+             
+          `
+
+    ), '');
+
+    const button = document.querySelectorAll('.button');
+    button.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        this.removeBook(this.books[index]);
+        this.display();
+      });
+    });
+  }
+
+  addBook(book) {
+    this.books.push(book);
+    localStorage.setItem('books', JSON.stringify(this.books));
+    this.display();
   }
 }
 
@@ -30,35 +60,35 @@ const authorName = document.querySelector('.author');
 const add = document.querySelector('.add');
 const store = new Store();
 
-function display() {
-  const div = document.createElement('div');
-  div.classList.add('book-list');
-  div.innerHTML = '';
+// function display() {
+//   const div = document.createElement('div');
+//   div.classList.add('book-list');
+//   div.innerHTML = '';
 
-  container.innerHTML = store.books.reduce((output, book, i) => (
-    `${output
-    }
-          <div class="book-list book-${i % 2 === 0 ? 'odd' : ''}">
-          <div>
-          <span>"${book.title}"</span>
-          <span>by</span>
-          <span>${book.author}</span>
-          </div>
-          <button class="button">remove</button>
-          </div>
-           
-        `
+//   container.innerHTML = store.books.reduce((output, book, i) => (
+//     `${output
+//     }
+//           <div class="book-list book-${i % 2 === 0 ? 'odd' : ''}">
+//           <div>
+//           <span>"${book.title}"</span>
+//           <span>by</span>
+//           <span>${book.author}</span>
+//           </div>
+//           <button class="button">remove</button>
+//           </div>
 
-  ), '');
+//         `
 
-  const button = document.querySelectorAll('.button');
-  button.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
-      store.removeBook(store.books[index]);
-      display();
-    });
-  });
-}
+//   ), '');
+
+//   const button = document.querySelectorAll('.button');
+//   button.forEach((btn, index) => {
+//     btn.addEventListener('click', () => {
+//       store.removeBook(store.books[index]);
+//       display();
+//     });
+//   });
+// }
 
 add.addEventListener('click', () => {
   const newBook = new Book(bookName.value, authorName.value);
@@ -66,5 +96,5 @@ add.addEventListener('click', () => {
 });
 
 window.onload = () => {
-  display();
+  store.display();
 };
