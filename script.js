@@ -60,36 +60,6 @@ const authorName = document.querySelector('.author');
 const add = document.querySelector('.add');
 const store = new Store();
 
-// function display() {
-//   const div = document.createElement('div');
-//   div.classList.add('book-list');
-//   div.innerHTML = '';
-
-//   container.innerHTML = store.books.reduce((output, book, i) => (
-//     `${output
-//     }
-//           <div class="book-list book-${i % 2 === 0 ? 'odd' : ''}">
-//           <div>
-//           <span>"${book.title}"</span>
-//           <span>by</span>
-//           <span>${book.author}</span>
-//           </div>
-//           <button class="button">remove</button>
-//           </div>
-
-//         `
-
-//   ), '');
-
-//   const button = document.querySelectorAll('.button');
-//   button.forEach((btn, index) => {
-//     btn.addEventListener('click', () => {
-//       store.removeBook(store.books[index]);
-//       display();
-//     });
-//   });
-// }
-
 add.addEventListener('click', () => {
   const newBook = new Book(bookName.value, authorName.value);
   store.addBook(newBook);
