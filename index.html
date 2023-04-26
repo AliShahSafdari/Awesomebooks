@@ -5,30 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="script.js"></script>
+
     <title>Document</title>
 </head>
 
 <body>
-    <header></header>
-    <main>
-        <section class="main-container">
-            <h2>All Awesome Books</h2>
-            <div class="contain">
+    <header>
+        <nav>
+            <div class="img-container">
+             <img src="book-logo.png"/> 
             </div>
-
-            <h2>Add a new book</h2>
-            <div class="form-container">
-            <form  class="form">
-                <input class='book' type="text" name="books" placeholder="Book name"><br />
-                <input class='author' type="text" name="authors" placeholder="Author"><br />
-                <button class="add">Add</button>
-            </form>
-          </div>
+            <ul>
+                <li><a href="#" onclick="getPageContent('list')" >List</a></li>
+                <li><a href="#" onclick="getPageContent('addNew')">Add new</a></li>
+                <li><a href="#" onclick="getPageContent('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="date-containter">
+        <p class="date"> </p>
+      </div>
+    <main id="content">
+      
+        <section class="main-container">
         </section>
+       
     </main>
-    <footer></footer>
+    <footer class="footer">
+        <p>copyright</p>
+    </footer>
+
 
 </body>
-<script src="script.js"></script>
+ 
 
 </html>
