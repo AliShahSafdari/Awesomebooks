@@ -23,6 +23,8 @@ class Store {
     div.classList.add('book-list');
     div.innerHTML = '';
 
+    console.log(container)
+
     container.innerHTML = this.books.reduce((output, book, i) => (
       `${output
       }
@@ -55,21 +57,21 @@ class Store {
   }
 }
 
-const bookName = document.querySelector('.book');
-const authorName = document.querySelector('.author');
-const add = document.querySelector('.add');
-const store = new Store();
+// const bookName = document.querySelector('.book');
+// const authorName = document.querySelector('.author');
+// const add = document.querySelector('.add');
+// const store = new Store();
 
-add.addEventListener('click', (e) => {
-  e.preventDefault();
-  const newBook = new Book(bookName.value, authorName.value);
-  store.addBook(newBook);
-  bookName.value = '';
-  authorName.value = '';
-});
+// add.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const newBook = new Book(bookName.value, authorName.value);
+//   store.addBook(newBook);
+//   bookName.value = '';
+//   authorName.value = '';
+// });
 
 window.onload = () => {
-  store.display();
+  // store.display();
 };
 
 
@@ -103,17 +105,37 @@ function getPageContent(page) {
   switch (page) {
       case 'list':
           contentToReturn = display12();
+          document.getElementById('content').innerHTML = contentToReturn;
           break;
-      case 'addNew':
-          contentToReturn = display13();
+      case 'addNew':{
+      
+        contentToReturn = display13();
+        document.getElementById('content').innerHTML = contentToReturn;
+      }
+           
           break;
       case 'contact':
           contentToReturn = display14();
+          document.getElementById('content').innerHTML = contentToReturn;
           break;
       default:
-          contentToReturn = pages.home;
+          contentToReturn = display12();
+          document.getElementById('content').innerHTML = contentToReturn;
           break;
   }
-  document.getElementById('content').innerHTML =
-      contentToReturn;
+  // document.getElementById('content').innerHTML = contentToReturn;
+  const container = document.querySelector('.contain');
+  const add = document.querySelector('.add');
+  const bookName = document.querySelector('.book');
+  const authorName = document.querySelector('.author');
+  const store = new Store();
+
+  add.addEventListener('click', (e) => {
+    e.preventDefault();
+    const newBook = new Book(bookName.value, authorName.value);
+    store.addBook(newBook);
+    // bookName.value = '';
+    // authorName.value = '';
+  });
+
 }
