@@ -107,3 +107,6 @@ input:focus {
     border: solid 2px #415d43;
     outline: none;
 }
+.message{
+  display: none;
+}

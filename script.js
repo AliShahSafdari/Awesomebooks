@@ -13,17 +13,17 @@ class Store {
   }
 
   removeBook(book) {
+    const container = document.querySelector('.contain');
     this.books = this.books.filter((b) => b !== book);
     localStorage.setItem('books', JSON.stringify(this.books));
     container.innerHTML = '';
   }
 
   display() {
+    const container = document.querySelector('.contain');
     const div = document.createElement('div');
     div.classList.add('book-list');
     div.innerHTML = '';
-
-    console.log(container)
 
     container.innerHTML = this.books.reduce((output, book, i) => (
       `${output
@@ -51,91 +51,81 @@ class Store {
   }
 
   addBook(book) {
+    console.log(this.books)
     this.books.push(book);
-    localStorage.setItem('books', JSON.stringify(this.books));
-    this.display();
+     localStorage.setItem('books', JSON.stringify(this.books));
+     document.querySelector(".msg").classList.remove('message')
+     setTimeout(()=>{
+      document.querySelector(".msg").classList.add('message')
+     }, 3000)
   }
 }
-
-// const bookName = document.querySelector('.book');
-// const authorName = document.querySelector('.author');
-// const add = document.querySelector('.add');
-// const store = new Store();
-
-// add.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   const newBook = new Book(bookName.value, authorName.value);
-//   store.addBook(newBook);
-//   bookName.value = '';
-//   authorName.value = '';
-// });
+ const store = new Store();
 
 window.onload = () => {
-  // store.display();
+  getPageContent('list')
 };
 
-
-
-// function part
-
-function display12() { 
-  var content1 =` <h2>All Awesome Books</h2>
+function bookList() {
+  var content1 = ` <h2>All Awesome Books</h2>
   <div class="contain">
   </div>`;
   return content1;
 }
-function display13() {
+function addNewBook() {
   var content1 = `<h2>Add a new book</h2>
   <div class="form-container">
   <form  class="form">
       <input class='book' type="text" name="books" placeholder="Book name"><br />
       <input class='author' type="text" name="authors" placeholder="Author"><br />
       <button class="add">Add</button>
+      <span class="msg message">Book is sucessfully added</span>
   </form>
 </div>`;
   return content1;
 }
-function display14() {
+function contact() {
   var content1 = '<h1>This is out contact page.</h1>'
   return content1;
 }
 
 function getPageContent(page) {
+
   var contentToReturn;
   switch (page) {
-      case 'list':
-          contentToReturn = display12();
-          document.getElementById('content').innerHTML = contentToReturn;
-          break;
-      case 'addNew':{
+    case 'list': {
+      contentToReturn = bookList();
+      document.getElementById('content').innerHTML = contentToReturn;
+      store.display()
+    }
+      break;
+    case 'addNew': {
+
+      contentToReturn = addNewBook();
+      document.getElementById('content').innerHTML = contentToReturn;
+
+      const add = document.querySelector('.add');
+      const bookName = document.querySelector('.book');
+      const authorName = document.querySelector('.author');
+       
       
-        contentToReturn = display13();
-        document.getElementById('content').innerHTML = contentToReturn;
-      }
-           
-          break;
-      case 'contact':
-          contentToReturn = display14();
-          document.getElementById('content').innerHTML = contentToReturn;
-          break;
-      default:
-          contentToReturn = display12();
-          document.getElementById('content').innerHTML = contentToReturn;
-          break;
+
+      add.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newBook = new Book(bookName.value, authorName.value);
+        store.addBook(newBook);
+      });
+
+    }
+
+      break;
+    case 'contact':
+      contentToReturn = contact();
+      document.getElementById('content').innerHTML = contentToReturn;
+      break;
+    default:
+      contentToReturn = bookList();
+      document.getElementById('content').innerHTML = contentToReturn;
+      break;
   }
-  // document.getElementById('content').innerHTML = contentToReturn;
-  const container = document.querySelector('.contain');
-  const add = document.querySelector('.add');
-  const bookName = document.querySelector('.book');
-  const authorName = document.querySelector('.author');
-  const store = new Store();
-
-  add.addEventListener('click', (e) => {
-    e.preventDefault();
-    const newBook = new Book(bookName.value, authorName.value);
-    store.addBook(newBook);
-    // bookName.value = '';
-    // authorName.value = '';
-  });
-
 }
