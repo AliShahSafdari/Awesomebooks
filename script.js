@@ -60,9 +60,12 @@ const authorName = document.querySelector('.author');
 const add = document.querySelector('.add');
 const store = new Store();
 
-add.addEventListener('click', () => {
+add.addEventListener('click', (e) => {
+    e.preventDefault();
   const newBook = new Book(bookName.value, authorName.value);
   store.addBook(newBook);
+  bookName.value = '';
+  authorName.value ='';
 });
 
 window.onload = () => {
