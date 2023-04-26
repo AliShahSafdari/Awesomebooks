@@ -1,5 +1,4 @@
 /* eslint max-classes-per-file: ["error", 2] */
-const container = document.querySelector('.contain');
 
 class Book {
   constructor(title, author) {
@@ -51,29 +50,24 @@ class Store {
   }
 
   addBook(book) {
-    console.log(this.books)
     this.books.push(book);
-     localStorage.setItem('books', JSON.stringify(this.books));
-     document.querySelector(".msg").classList.remove('message')
-     setTimeout(()=>{
-      document.querySelector(".msg").classList.add('message')
-     }, 3000)
+    localStorage.setItem('books', JSON.stringify(this.books));
+    document.querySelector('.msg').classList.remove('message');
+    setTimeout(() => {
+      document.querySelector('.msg').classList.add('message');
+    }, 1500);
   }
 }
- const store = new Store();
-
-window.onload = () => {
-  getPageContent('list')
-};
+const store = new Store();
 
 function bookList() {
-  var content1 = ` <h2>All Awesome Books</h2>
+  const content1 = ` <h2>All Awesome Books</h2>
   <div class="contain">
   </div>`;
   return content1;
 }
 function addNewBook() {
-  var content1 = `<h2>Add a new book</h2>
+  const content1 = `<h2>Add a new book</h2>
   <div class="form-container">
   <form  class="form">
       <input class='book' type="text" name="books" placeholder="Book name"><br />
@@ -85,37 +79,34 @@ function addNewBook() {
   return content1;
 }
 function contact() {
-  var content1 = '<h1>This is out contact page.</h1>'
+  const content1 = '<h1>This is out contact page.</h1>';
   return content1;
 }
 
 function getPageContent(page) {
-
-  var contentToReturn;
+  let contentToReturn;
   switch (page) {
-    case 'list': {
+    case 'list':
       contentToReturn = bookList();
       document.getElementById('content').innerHTML = contentToReturn;
-      store.display()
-    }
+      store.display();
+
       break;
     case 'addNew': {
-
       contentToReturn = addNewBook();
       document.getElementById('content').innerHTML = contentToReturn;
 
       const add = document.querySelector('.add');
       const bookName = document.querySelector('.book');
       const authorName = document.querySelector('.author');
-       
-      
 
       add.addEventListener('click', (e) => {
         e.preventDefault();
         const newBook = new Book(bookName.value, authorName.value);
         store.addBook(newBook);
+        bookName.value = '';
+        authorName.value = '';
       });
-
     }
 
       break;
@@ -129,3 +120,7 @@ function getPageContent(page) {
       break;
   }
 }
+
+window.onload = () => {
+  getPageContent('list');
+};
