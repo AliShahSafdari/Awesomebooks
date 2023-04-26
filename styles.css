@@ -16,7 +16,7 @@
 .contain {
   margin: 10px;
   width: 50%;
-  border: solid 2px black;
+  border: solid 2px #415d43;
 }
 
 .book-list {
@@ -29,24 +29,47 @@
 }
 
 .button {
+  color: white;
+  background-color: #a92626;
   box-shadow: 2px 3px #333;
-  padding: 3px;
+  padding: 3px 6px;
+  border: none;
+
 }
 
 .book-odd {
-  background-color: rgba(31, 27, 27, 0.2);
+  background-color:  rgba(65, 93, 67,0.2);
+}
+
+.form-container {
+    width: 20%;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  justify-content: flex-end;
-  align-items: flex-end;
+  margin: 0;
   padding: 10px 0;
 }
 
 .add {
-  width: 30%;
+  position: absolute;
+  
   box-shadow: 2px 3px #333;
+  padding: 3px 20px;
+  color: white;
+  background-color: #415d43;
+  border: none;
+  right: 40%;
+}
+
+input { 
+   width: 100%;
+   padding: 6px 0;
+   margin-bottom: 5px;
+   border: solid 2px rgba(65, 93, 67,0.7);
+   color: #415d43;   
+}
+
+input:focus {
+    border: solid 2px #415d43;
+    outline: none;
 }
