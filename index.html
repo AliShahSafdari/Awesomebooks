@@ -10,31 +10,33 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="getPageContent('list')">
     <header>
         <nav>
             <span>Awesome Books</span>
             <ul>
-                <li><a href="#">List</a></li>
-                <li><a href="#">Add new</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" onclick="getPageContent('list')" >List</a></li>
+                <li><a href="#" onclick="getPageContent('addNew')">Add new</a></li>
+                <li><a href="#" onclick="getPageContent('contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="main-container">
-            <h2>All Awesome Books</h2>
-            <div class="contain">
-            </div>
+    <main id="content">
 
-            <h2>Add a new book</h2>
+        
+        <section class="main-container">
+            <!-- <h2>All Awesome Books</h2>
+            <div class="contain">
+            </div> -->
+
+            <!-- <h2>Add a new book</h2>
             <div class="form-container">
             <form  class="form">
                 <input class='book' type="text" name="books" placeholder="Book name"><br />
                 <input class='author' type="text" name="authors" placeholder="Author"><br />
                 <button class="add">Add</button>
             </form>
-          </div>
+          </div>  -->
         </section>
     </main>
     <footer></footer>
