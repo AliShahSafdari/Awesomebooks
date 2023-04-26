@@ -138,4 +138,6 @@ function getPageContent(page) {
 
 window.onload = () => {
   getPageContent('list');
+  const date = new Date();
+  document.querySelector('.date').innerHTML = date;
 };
