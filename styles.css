@@ -2,6 +2,40 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
+  font-family: "Poppins", sans-serif;
+  
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  margin: 5px 10px;
+  padding: 0 10px;
+  border: 2px solid #415d43;
+  border-radius: 3px;
+
+  
+}
+nav ul{
+  display: flex;
+  list-style: none;
+  gap: 4px;
+
+}
+nav ul li {
+  border-right: 1px solid #415d43;
+  padding-right: 10px;
+}
+nav ul li:last-child{
+  border:none
+}
+nav ul a{
+  text-decoration: none;
+  color: black
+}
+nav ul a:hover{
+ color: rgba(65, 93, 67,0.6);
 }
 
 .main-container {
