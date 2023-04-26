@@ -61,20 +61,23 @@ class Store {
 const store = new Store();
 
 function bookList() {
-  const content1 = ` <h2>All Awesome Books</h2>
+  const content1 = ` <div class="book-list-container"><h2>All Awesome Books</h2>
   <div class="contain">
-  </div>`;
+  </div>
+  </div>
+  `;
   return content1;
 }
 function addNewBook() {
-  const content1 = `<h2>Add a new book</h2>
+  const content1 = `<div class="add-book-container" ><h2>Add a new book</h2>
   <div class="form-container">
-  <form  class="form">
-      <input class='book' type="text" name="books" placeholder="Book name"><br />
-      <input class='author' type="text" name="authors" placeholder="Author"><br />
-      <button class="add">Add</button>
+  <form>
+      <input class='book' type="text" name="books" placeholder="Book name"> 
+      <input class='author' type="text" name="authors" placeholder="Author"> 
+      <div class="btn-container"><button class="add">Add</button></div>
       <span class="msg message">Book is sucessfully added</span>
   </form>
+</div>
 </div>`;
   return content1;
 }
