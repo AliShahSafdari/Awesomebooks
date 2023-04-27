@@ -59,7 +59,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[https://alishahsafdari.github.io/Awesomebooks/]
+- [Live Demo Link](https://alishahsafdari.github.io/Awesomebooks/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
