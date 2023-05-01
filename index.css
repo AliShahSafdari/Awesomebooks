@@ -4,6 +4,7 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -183,7 +184,7 @@ input:focus {
   color: rgba(65, 93, 67, 0.6);
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   gap: 20px;
