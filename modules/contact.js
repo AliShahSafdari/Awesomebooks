@@ -1,5 +1,6 @@
+/* eslint-disable import/prefer-default-export */
 export const contact = () => {
-    const content1 = `<div class="contact-continar">
+  const content1 = `<div class="contact-continar">
     <h2>Contact information</h2>
     <div class="contact-content">
     <p>Do you have any questions or you just want to say "Hello"?<br>
@@ -12,5 +13,5 @@ export const contact = () => {
     </ul>
     </div>
     </div>`;
-    return content1;
-}
+  return content1;
+};

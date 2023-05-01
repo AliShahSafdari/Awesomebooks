@@ -1,5 +1,6 @@
+/* eslint-disable import/prefer-default-export */
 export const addNewBook = () => {
-    const content1 = `<div class="add-book-container" ><h2>Add a new book</h2>
+  const content1 = `<div class="add-book-container" ><h2>Add a new book</h2>
     <div class="form-container">
     <form>
         <input class='book' type="text" name="books" placeholder="Book name"> 
@@ -9,5 +10,5 @@ export const addNewBook = () => {
     </form>
   </div>
   </div>`;
-    return content1;
-}
+  return content1;
+};

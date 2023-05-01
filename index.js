@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import Store from './modules/store.js';
 import Book from './modules/book.js';
 import { bookList } from './modules/bookList.js';
@@ -34,10 +35,10 @@ btnList.addEventListener('click', () => {
   store.display();
 });
 
-setInterval(()=>{
+setInterval(() => {
   const currentDate = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
   document.querySelector('.date').innerHTML = currentDate;
-},(1000));
+}, (1000));
 
 window.onload = () => {
   document.getElementById('content').innerHTML = bookList();
