@@ -59,7 +59,6 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://alishahsafdari.github.io/Awesomebooks/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
@@ -107,16 +106,15 @@ Open index.html using live server extension.
 
 👤 Alishah Safdari
 
-👤 Sumeya Ibrahim
-
-👤 Narcisse Jemba
-
+- GitHub: [@AliShahSafdari](https://github.com/AliShahSafdari)
+- Twitter: [@AlishahSafdari](https://twitter.com/AlishahSafdari)
+- LinkedIn: [@ali-shah-safdari-010541215](https://www.linkedin.com/in/ali-shah-safdari-010541215/)
 
  
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Refactor to use JavaScript classes
+- [ ] Refactor to use JavaScript classes and divided in different files
 - [ ] A complete website with navigation
 - [ ] Add more styles
 

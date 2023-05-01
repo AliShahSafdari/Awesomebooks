@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="script.js"></script>
+    <script type="module" src="index.js"></script>
 
     <title>Document</title>
 </head>
@@ -18,12 +19,13 @@
              <img src="book-logo.png"/> 
             </div>
             <ul>
-                <li><a href="#" onclick="getPageContent('list')" >List</a></li>
-                <li><a href="#" onclick="getPageContent('addNew')">Add new</a></li>
-                <li><a href="#" onclick="getPageContent('contact')">Contact</a></li>
+                <li><a href="#" id="btnList">List</a></li>
+                <li><a href="#" id="btnAddbook">Add new</a></li>
+                <li><a href="#" id="btnContact">Contact</a></li>
             </ul>
         </nav>
     </header>
+   <div class="container">
     <div class="date-containter">
         <p class="date"> </p>
       </div>
@@ -33,10 +35,10 @@
         </section>
        
     </main>
+</div>
     <footer class="footer">
         <p>copyright</p>
     </footer>
-
 
 </body>
  
